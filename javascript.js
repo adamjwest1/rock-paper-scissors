@@ -54,26 +54,13 @@ let humanScore = 0;
 let computerScore = 0;
 
 
-// function playGame(n) {
-    
-
-//     for (i = 0; i<n; i++) {
-//         var humanSelection = getHumanChoice();
-//         var computerSelection = getComputerChoice();
-//         playRound(humanSelection, computerSelection);
-//         console.log("You: " + humanScore, "Computer: " + computerScore)
-//     }
-
-
-// }
-
-
 const rockBtn = document.querySelector(".rockBtn");
 const paperBtn = document.querySelector(".paperBtn");
 const scissorsBtn = document.querySelector(".scissorsBtn");
 const newGameBtn = document.querySelector(".newGameBtn");
 const playerScore = document.querySelector(".playerScore");
 const compScore = document.querySelector(".computerScore");
+const gameBoard = document.querySelector(".gameBoard");
 
 rockBtn.addEventListener("click", () => {
     humanSelection = "rock";
@@ -81,6 +68,15 @@ rockBtn.addEventListener("click", () => {
     playRound(humanSelection, computerSelection);
     playerScore.textContent = humanScore;
     compScore.textContent = computerScore;
+    if (humanScore == 5 || computerScore == 5) {
+        gameBoard.textContent = "Game Over!"
+    
+    if (humanScore === 5) {
+        gameBoard.textContent += "You Win!"
+    }else {
+        gameBoard.textContent += "You Lost..."
+    }
+}
 })
 paperBtn.addEventListener("click", () => {
     humanSelection = "paper";
@@ -88,6 +84,15 @@ paperBtn.addEventListener("click", () => {
     playRound(humanSelection, computerSelection);
     playerScore.textContent = humanScore;
     compScore.textContent = computerScore;
+    if (humanScore == 5 || computerScore == 5) {
+        gameBoard.textContent = "Game Over!"
+    
+    if (humanScore == 5) {
+        gameBoard.textContent += "You Win!"
+    }else {
+        gameBoard.textContent += "You Lost..."
+    }
+}
 })
 scissorsBtn.addEventListener("click", () => {
     humanSelection = "scissors"
@@ -95,17 +100,26 @@ scissorsBtn.addEventListener("click", () => {
     playRound(humanSelection, computerSelection);
     playerScore.textContent = humanScore;
     compScore.textContent = computerScore;
+    if (humanScore == 5 || computerScore == 5) {
+        gameBoard.textContent = "Game Over!"
+    
+    if (humanScore == 5) {
+        gameBoard.textContent += "You Win!"
+    }else {
+        gameBoard.textContent += "You Lost..."
+    }
+}
 })
 newGameBtn.addEventListener("click", () => {
     humanScore = 0;
     computerScore = 0;
     playerScore.textContent = humanScore;
     compScore.textContent = computerScore;
+    location.reload();
+    
 })
 
 playerScore.textContent = humanScore;
 compScore.textContent = computerScore;
 
-if (humanScore === 5 || computerScore === 5) {
-    prompt("Game Over");
-}
+
