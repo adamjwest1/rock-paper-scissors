@@ -50,21 +50,62 @@ function playRound(humanSelection, computerSelection) {
     
 }
 
+let humanScore = 0;
+let computerScore = 0;
 
 
+// function playGame(n) {
+    
 
-function playGame(n) {
-    let humanScore = 0;
-    let computerScore = 0;
-
-    for (i = 0; i<n; i++) {
-        var humanSelection = getHumanChoice();
-        var computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-        console.log("You: " + humanScore, "Computer: " + computerScore)
-    }
+//     for (i = 0; i<n; i++) {
+//         var humanSelection = getHumanChoice();
+//         var computerSelection = getComputerChoice();
+//         playRound(humanSelection, computerSelection);
+//         console.log("You: " + humanScore, "Computer: " + computerScore)
+//     }
 
 
+// }
+
+
+const rockBtn = document.querySelector(".rockBtn");
+const paperBtn = document.querySelector(".paperBtn");
+const scissorsBtn = document.querySelector(".scissorsBtn");
+const newGameBtn = document.querySelector(".newGameBtn");
+const playerScore = document.querySelector(".playerScore");
+const compScore = document.querySelector(".computerScore");
+
+rockBtn.addEventListener("click", () => {
+    humanSelection = "rock";
+    computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    playerScore.textContent = humanScore;
+    compScore.textContent = computerScore;
+})
+paperBtn.addEventListener("click", () => {
+    humanSelection = "paper";
+    computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    playerScore.textContent = humanScore;
+    compScore.textContent = computerScore;
+})
+scissorsBtn.addEventListener("click", () => {
+    humanSelection = "scissors"
+    computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    playerScore.textContent = humanScore;
+    compScore.textContent = computerScore;
+})
+newGameBtn.addEventListener("click", () => {
+    humanScore = 0;
+    computerScore = 0;
+    playerScore.textContent = humanScore;
+    compScore.textContent = computerScore;
+})
+
+playerScore.textContent = humanScore;
+compScore.textContent = computerScore;
+
+if (humanScore === 5 || computerScore === 5) {
+    prompt("Game Over");
 }
-// playGame(2);
-// console.log(playGame(2));
